@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Akhanda AI — mobile-ready chat app preview.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Akhanda AI">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Akhanda AI</title>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <aside class="sidebar" id="sidebar" aria-label="Chat navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">A</div>
+        <div><div class="brand-name">akhanda<span> ai</span></div><div class="brand-caption">YOUR SPACE TO THINK</div></div>
+        <button class="icon-button sidebar-close" id="closeSidebar" aria-label="Close menu">×</button>
+      </div>
+      <button class="new-chat-button" id="newChat"><span>＋</span> New chat</button>
+      <div class="sidebar-label">YOUR CHATS</div>
+      <div class="chat-list" id="chatList"></div>
+      <div class="sidebar-bottom">
+        <button class="nav-button" id="settingsButton"><span>⚙</span> Settings</button>
+        <div class="local-note"><span class="status-dot"></span><span>Chats saved on this device</span></div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="openSidebar" aria-label="Open menu">☰</button>
+        <div class="mobile-brand"><div class="brand-mark small">A</div><span>akhanda<span class="brand-ai"> ai</span></span></div>
+        <div class="topbar-spacer"></div>
+        <span class="preview-pill"><span class="status-dot"></span> PREVIEW</span>
+        <button class="icon-button top-settings" id="topSettings" aria-label="Settings">⚙</button>
+      </header>
+
+      <section class="conversation" id="conversation" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-symbol">✳</div>
+          <p class="eyebrow">WELCOME TO AKHANDA</p>
+          <h1>Ideas start<br><span>somewhere.</span></h1>
+          <p class="welcome-copy">A calm space for questions, ideas and exploration.</p>
+          <div class="preview-notice"><div class="notice-icon">ⓘ</div><div><strong>Mobile app preview</strong><p>The mobile-ready interface is available. AI responses are not connected in this preview, so no API key is requested or stored.</p></div></div>
+        </div>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <footer class="composer-area">
+        <div class="composer" id="composer">
+          <textarea id="messageInput" rows="1" maxlength="4000" placeholder="Write a message…" aria-label="Write a message"></textarea>
+          <button class="send-button" id="sendButton" aria-label="Send message" disabled>↑</button>
+        </div>
+        <p class="composer-caption">Akhanda AI preview · Messages are stored only in this browser</p>
+      </footer>
+    </main>
+  </div>
+
+  <dialog class="settings-dialog" id="settingsDialog">
+    <form method="dialog" class="settings-card">
+      <div class="dialog-heading"><div><p class="eyebrow">PREFERENCES</p><h2>Settings</h2></div><button class="icon-button" value="cancel" aria-label="Close settings">×</button></div>
+      <div class="setting-row"><div><strong>Appearance</strong><p>Choose how Akhanda looks on this device.</p></div><select id="themeSelect" aria-label="Appearance"><option value="dark">Dark</option><option value="light">Light</option><option value="system">System</option></select></div>
+      <div class="setting-row"><div><strong>AI connection</strong><p>Not connected in this preview. No API key is collected.</p></div><span class="disabled-badge">Disabled</span></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Close</button><button class="primary-button" id="saveSettings" value="default">Save settings</button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
